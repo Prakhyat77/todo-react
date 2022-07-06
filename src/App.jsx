@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Form from "./Components/Form";
 import Todolist from "./Components/Todolist";
 import "./App.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   // Todo usestate
@@ -20,6 +22,7 @@ const App = () => {
       <br />
       <hr />
       <Todolist todolist={todolist} settodolist={settodolist} />
+      <ToastContainer />
     </>
   );
 };
