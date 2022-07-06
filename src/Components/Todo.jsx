@@ -1,13 +1,13 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const Todo = ({ text, id, todos, settodolist, todolist }) => {
+const Todo = ({ text, todos, settodolist, todolist }) => {
   const deleteHandler = () => {
     settodolist(todolist.filter((el) => el.id !== todos.id));
     if (!todos.completed) {
-      toast.warn("Task Not Completed But Removing It", {
+      toast.warn("Tumse Nahi Ho Payega 😒", {
         position: "bottom-center",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -30,18 +30,18 @@ const Todo = ({ text, id, todos, settodolist, todolist }) => {
       }),
     );
     if (!todos.completed) {
-      toast.success("Task Done Successfully");
+      toast.success("Hogaya 😊");
     } else {
-      toast("Task Not Done");
+      toast.warn("Nahi Ho Paya 😯");
     }
   };
 
   return (
     <>
-      <li>
-        <input type="checkbox" onChange={checkboxHandler} />
+      <li className={todos.completed ? "task-completed" : "list"}>
+        <input className="check" type="checkbox" onChange={checkboxHandler} />
         <span className={todos.completed ? "completed" : ""}>{text}</span>
-        <button onClick={deleteHandler}>Delete</button>
+        <button onClick={deleteHandler}>❌</button>
       </li>
     </>
   );

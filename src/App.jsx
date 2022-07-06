@@ -4,6 +4,8 @@ import Todolist from "./Components/Todolist";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
 
 const App = () => {
   // Todo usestate
@@ -12,16 +14,17 @@ const App = () => {
   const [todolist, settodolist] = useState([]);
   return (
     <>
-      <h1>Prakhyat Todo List</h1>
+      <Header />
       <Form
         todo={todo}
         settodo={settodo}
         todolist={todolist}
         settodolist={settodolist}
       />
-      <br />
-      <hr />
+
       <Todolist todolist={todolist} settodolist={settodolist} />
+
+      <Footer />
       <ToastContainer />
     </>
   );

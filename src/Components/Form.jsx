@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { toast } from "react-toastify";
 
 const Form = ({ todo, settodo, todolist, settodolist }) => {
   const changeHandler = (e) => {
     let task = e.target.value;
-    if (task.length < 100) {
+    if (task.length < 50) {
       settodo(task);
     } else {
-      toast.warn("Write less Than 100 character", {
+      toast.warn("Essay nahi Likhna Hai 🤣", {
         position: "bottom-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -27,9 +27,9 @@ const Form = ({ todo, settodo, todolist, settodolist }) => {
         { text: todo, completed: false, id: Math.random() * 1000 },
       ]);
       settodo("");
-      toast.success("Task Added Successfully", {
-        position: "top-left",
-        autoClose: 5000,
+      toast.success("Task Added Successfully 👍", {
+        position: "top-right",
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -37,9 +37,9 @@ const Form = ({ todo, settodo, todolist, settodolist }) => {
         progress: undefined,
       });
     } else {
-      toast.warn("First Complete the below Task", {
+      toast.warn("Pehle itna to kar lo 🤨", {
         position: "bottom-center",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -51,8 +51,16 @@ const Form = ({ todo, settodo, todolist, settodolist }) => {
   return (
     <>
       <form onSubmit={submitEventHandler} action="">
-        <input type="text" onChange={changeHandler} name="todo" value={todo} />
-        <input type="submit" value="Add" />
+        <input
+          onChange={changeHandler}
+          name="todo"
+          value={todo}
+          className="userInput"
+          type="text"
+          placeholder="New item..."
+          // maxlength="40"
+        />
+        <button className="enter">+</button>
       </form>
     </>
   );
