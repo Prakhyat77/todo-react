@@ -1,5 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
+import { v4 as uuidv4 } from "uuid";
 
 const Form = ({ todo, settodo, todolist, settodolist }) => {
   const changeHandler = (e) => {
@@ -24,7 +25,7 @@ const Form = ({ todo, settodo, todolist, settodolist }) => {
     if (todolist.length < 14) {
       settodolist([
         ...todolist,
-        { text: todo, completed: false, id: Math.random() * 1000 },
+        { text: todo, completed: false, id: uuidv4() },
       ]);
       settodo("");
       toast.success("Task Added Successfully 👍", {
